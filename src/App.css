@@ -1,0 +1,15 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.css-ptkaw2-MuiDataGrid-root, .css-i4bv87-MuiSvgIcon-root, .css-rtrcn9-MuiTablePagination-root, .css-pqjvzy-MuiSvgIcon-root-MuiSelect-icon, .css-ptiqhd-MuiSvgIcon-root  {
+  color:white !important;
+}
+
+button {
+  color: white;
+  margin: 5px;
+}
