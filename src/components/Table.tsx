@@ -3,10 +3,9 @@ import { useState } from "react";
 import { DataGrid, GridColDef, GridRowSelectionModel } from "@mui/x-data-grid";
 import { MeteoriteDetails } from "./MeteoriteDetails";
 
-export default function Table({ data }) {
+export default function Table({ data, detailsScreen, setDetailsScreen, setToggleTableView }) {
   const [selectedRows, setSelectedRows] = useState([]);
-  const [detailsScreen, setDetailsScreen] = useState(false);
-
+  console.log(data)
   const columns: GridColDef[] = [
     { field: "id", headerName: "ID", width: 70 },
     { field: "name", headerName: "Meteorite Name", width: 130 },
@@ -21,8 +20,8 @@ export default function Table({ data }) {
     setDetailsScreen(true);
   }
 
-  if (detailsScreen.length === 0) {
-    setDetailsScreen(false);
+  function switchToYearView() {
+    setToggleTableView(false)
   }
 
   return (
@@ -61,6 +60,7 @@ export default function Table({ data }) {
               }}
             />
           </div>
+          <button onClick={switchToYearView}>Switch to Year View</button>
         </>
       )}
     </>

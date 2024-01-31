@@ -13,3 +13,25 @@ button {
   color: white;
   margin: 5px;
 }
+
+#map {
+  height: 200px;
+  border-radius: 5px;
+}
+
+#summary-map {
+  height: 400px;
+  border-radius: 5px;
+}
+
+.meteorite-details {
+  margin-bottom: 20px;
+}
+
+.meteorite-details h3 {
+  margin: 10px 0 5px 0;
+}
+
+.meteorite-details ul {
+  margin: 0;
+}

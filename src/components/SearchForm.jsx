@@ -1,7 +1,7 @@
 import {useState} from "react"
 
 export default function SearchForm(props) {
-    const {setSearchYear} = props;
+    const {setSearchYear, detailsScreen} = props;
     const [newYear, setNewYear] = useState();
 
     function handleYearChange(event) {
@@ -16,6 +16,7 @@ export default function SearchForm(props) {
 
     return (
         <>
+        {detailsScreen ? null : 
         <section id="form">
             <form onSubmit={handleSubmit}>
                 <label htmlFor="yearSearch">Select year: </label>
@@ -23,6 +24,7 @@ export default function SearchForm(props) {
                 <button>Search</button>
             </form>
         </section>
+        }
         </>
     )
 }

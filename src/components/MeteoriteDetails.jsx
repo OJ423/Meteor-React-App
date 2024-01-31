@@ -1,17 +1,17 @@
-export function MeteoriteDetails({selectedRows, setDetailsScreen}) {
-  const visualiseData = selectedRows
+import MeteoriteItem from './MeteoriteItem'
+
+export function MeteoriteDetails({selectedRows, setDetailsScreen, setSelectedRows}) {
   
   function handleClick() {
     setDetailsScreen(false)
+    setSelectedRows([])
   }
 
   return(<>
-      {visualiseData.map((row) => (
-        <section key={row.id+row.name}>
-          <h3>{row.name} {row.year.slice(0,4)}</h3>
-          <p>{row.mass}</p>
-        </section>
+      {selectedRows.map((meteorite) => (
+        <MeteoriteItem key={meteorite.id} meteorite={meteorite}/>
       ))}
+
       <button onClick={handleClick}>Back to list</button>
       </>
     // 
