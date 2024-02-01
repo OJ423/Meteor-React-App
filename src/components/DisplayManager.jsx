@@ -18,7 +18,12 @@ export default function ListManager() {
         return response.json();
       })
       .then((responseData) => {
-        setData(responseData);
+        const cleanedData = responseData.map((meteorite) => {
+          meteorite.mass = +meteorite.mass
+          meteorite.year = meteorite.year.slice(0,4)
+          return meteorite
+        })
+        setData(cleanedData);
         setIsLoading(false);
       });
   };

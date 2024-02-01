@@ -1,5 +1,6 @@
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import { useEffect, useState } from "react";
+import Charts from "./Charts";
 
 export default function YearDisplay({ data, setToggleTableView, searchYear }) {
   const [summaryMeteorite, setSummaryMeteorite] = useState([]);
@@ -24,11 +25,12 @@ export default function YearDisplay({ data, setToggleTableView, searchYear }) {
       biggest: { name: biggest.name, mass: +biggest.mass },
       average: +(avgSize / data.length),
       avgName: average,
+      numMeteorites: data.length
     };
   }
-
+  const meteoriteStats = meteoriteCalc()
   useEffect(() => {
-    setSummaryMeteorite(meteoriteCalc());
+    setSummaryMeteorite(meteoriteStats);
   }, [data]);
 
   function MutlipleMarkers() {
@@ -48,21 +50,24 @@ export default function YearDisplay({ data, setToggleTableView, searchYear }) {
 
   return (
     <>
-      {/* <section className="summary-display">
-        <h2>{searchYear}</h2>
+      <section className="summary-display">
+      <h2>{searchYear} Quick Stats</h2>
+        <div id="number-of-meteorites">
+          <h3>{meteoriteStats.numMeteorites} meteorites recorded</h3>
+        </div>
         <div id="biggest-meteorite">
-          <h3>Biggest in {searchYear}: {summaryMeteorite.biggest.mass} grams</h3>
-          <p>{summaryMeteorite.biggest.name}</p>  
+          <h3>The biggest meteorite recorded was {meteoriteStats.biggest.name}, at {meteoriteStats.biggest.mass} grams</h3>
         </div>
-        <div id="averge-meteorite">
-          <h3>Average Meteorite Size</h3>
-          <p>{summaryMeteorite.average.toFixed(2)}</p>  
+        <div id="average-meteorite">
+          <h3>The average meteorite was {meteoriteStats.average.toFixed(2)} grams</h3>
         </div>
-        </section> */}
+        </section>
+        <section className="summary-map-container">
+          <h2>See Where Meteorites Fell in {searchYear}</h2>
         <MapContainer
           id="summary-map"
-          center={[22.492257, -34.127775]}
-          zoom={1}
+          center={[39.04, -34.00]}
+          zoom={2}
           scrollWheelZoom={false}
         >
           <TileLayer
@@ -71,9 +76,11 @@ export default function YearDisplay({ data, setToggleTableView, searchYear }) {
           />
           <MutlipleMarkers />
         </MapContainer>
+        <Charts data={data} searchYear={searchYear}/>
+        </section>
       <div className="switch-to-table-view">
         <p>
-          Switch to tableview to see all meteorites and drill down to
+          Switch to table view to see all meteorites and drill down to
           individuals ones.
         </p>
         <button onClick={switchToTableView}>Switch to Table View</button>

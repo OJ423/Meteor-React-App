@@ -18,6 +18,7 @@ export default function SearchForm(props) {
         <>
         {detailsScreen ? null : 
         <section id="form">
+            <p className="form-intro">Enter a search year to discover Nasa's meteorite data for that year.</p>
             <form onSubmit={handleSubmit}>
                 <label htmlFor="yearSearch">Select year: </label>
                 <input type="Number" id="yearSearch" value={newYear} onChange={handleYearChange}/>

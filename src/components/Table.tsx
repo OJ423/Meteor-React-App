@@ -5,7 +5,6 @@ import { MeteoriteDetails } from "./MeteoriteDetails";
 
 export default function Table({ data, detailsScreen, setDetailsScreen, setToggleTableView }) {
   const [selectedRows, setSelectedRows] = useState([]);
-  console.log(data)
   const columns: GridColDef[] = [
     { field: "id", headerName: "ID", width: 70 },
     { field: "name", headerName: "Meteorite Name", width: 130 },

@@ -1,13 +1,11 @@
 #root {
-  max-width: 1280px;
+  max-width: 900px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  box-sizing: border-box;
 }
 
-.css-ptkaw2-MuiDataGrid-root, .css-i4bv87-MuiSvgIcon-root, .css-rtrcn9-MuiTablePagination-root, .css-pqjvzy-MuiSvgIcon-root-MuiSelect-icon, .css-ptiqhd-MuiSvgIcon-root  {
-  color:white !important;
-}
 
 button {
   color: white;
@@ -15,13 +13,65 @@ button {
 }
 
 #map {
-  height: 200px;
+  height: 400px;
   border-radius: 5px;
 }
 
-#summary-map {
-  height: 400px;
+
+
+/* Header */
+.header {
+  display: grid;
+  grid-template-columns: 100px 800px;
+  gap: 60px;
+  align-items: center;
+  padding-bottom: 40px;
+  border-bottom: solid 4px;
+}
+
+.header img {
+  width: 100%;
+}
+
+.header div {
+  text-align: left;
+}
+
+.header h1, p {
+  margin: 0;
+}
+
+/* Year Search */
+#form {
+  text-align: left;
+  display: grid;
+  grid-template-columns: 30% 70%;
+  gap: 0px;
+  align-items: center;
+}
+
+#form p {
+  font-size: 0.7rem;
+}
+
+input {
+  padding: 10px;
+  margin-left: 20px;
   border-radius: 5px;
+  border: none;
+}
+
+/* Summary Page */
+
+.summary-display {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  gap: 50px;
+  align-items: center;
+  margin-bottom: 30px;
+  border: solid #b43a53 3px;
+  border-radius: 5px;
+  padding: 30px;
 }
 
 .meteorite-details {
@@ -35,3 +85,32 @@ button {
 .meteorite-details ul {
   margin: 0;
 }
+
+
+
+.summary-map-container {
+  margin: 50px 0;
+  text-align: left;
+}
+
+#summary-map {
+  height: 500px;
+  border-radius: 5px;
+  margin: 30px 0 60px 0;
+}
+
+.switch-to-table-view {
+  text-align: left;
+  display: grid;
+  grid-template-columns: 30% 70%;
+  gap: 0px;
+  align-items: center;
+}
+
+.switch-to-table-view p {
+  font-size: 0.7rem;
+}
+
+
+
+
